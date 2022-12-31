@@ -1,5 +1,6 @@
 package com.pxp.SQLite.demo.entity;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
