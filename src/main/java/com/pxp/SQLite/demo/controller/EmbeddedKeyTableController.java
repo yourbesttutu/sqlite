@@ -26,5 +26,4 @@ public class EmbeddedKeyTableController {
   public List<EmbeddedKeyTable> readTableByCondition() {
     return service.readByCondition();
   }
-
 }
