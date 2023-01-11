@@ -1,0 +1,22 @@
+---
+singleServerConfig:
+  address: "redis://34.230.80.74:6379"
+  clientName: null
+  connectionMinimumIdleSize: 32
+  connectionPoolSize: 64
+  connectTimeout: 10000
+  database: 0
+  dnsMonitoringInterval: 5000
+  idleConnectionTimeout: 10000
+  password: null
+  retryAttempts: 3
+  retryInterval: 1500
+  subscriptionConnectionMinimumIdleSize: 1
+  subscriptionConnectionPoolSize: 50
+  subscriptionsPerConnection: 5
+  pingConnectionInterval: 0
+  timeout: 3000
+threads: 16
+nettyThreads: 32
+codec: !<org.redisson.codec.Kryo5Codec> {}
+transportMode: "NIO"

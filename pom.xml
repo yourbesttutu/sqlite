@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.4.0</version>
+		<version>2.7.7</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.pxp</groupId>
@@ -15,7 +15,7 @@
 	<description>CRUD example with Spring Boot and SQLite</description>
 
 	<properties>
-		<java.version>11</java.version>
+		<java.version>19</java.version>
 	</properties>
 
 	<dependencies>
@@ -58,6 +58,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-amqp</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.redisson</groupId>
+			<artifactId>redisson-spring-data-27</artifactId>
+			<version>3.19.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -65,7 +70,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>${project.parent.version}</version>
+				<configuration>
+					<jvmArguments> -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=1044</jvmArguments>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
