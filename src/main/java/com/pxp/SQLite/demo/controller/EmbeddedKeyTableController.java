@@ -26,4 +26,9 @@ public class EmbeddedKeyTableController {
   public List<EmbeddedKeyTable> readTableByCondition() {
     return service.readByCondition();
   }
+
+//  @RequestMapping(value = "count", method = RequestMethod.GET)
+//  public int count() {
+//    return service.count(10L, "testKey1");
+//  }
 }

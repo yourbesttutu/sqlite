@@ -11,6 +11,7 @@
 	<groupId>com.pxp</groupId>
 	<artifactId>SQLite.demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>Spring Boot and SQLite</name>
 	<description>CRUD example with Spring Boot and SQLite</description>
 

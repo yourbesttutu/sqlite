@@ -13,5 +13,8 @@ public interface EmbeddedKeyTableRepository extends
 
   @Query("select e from EmbeddedKeyTable e WHERE daily_timestamp=?1 and partition_key=?2 and timestamp>=?3 and timestamp<=?4")
   public List<EmbeddedKeyTable> findByDaily(long dailyTimestamp, String partitionKey,
-      long startTime,long endTime);
+      long startTime, long endTime);
+
+  @Query("select COUNT(*) from EmbeddedKeyTable e WHERE daily_timestamp=?1 and partition_key=?2")
+  public int count(long dailyTimestamp, String partitionKey);
 }

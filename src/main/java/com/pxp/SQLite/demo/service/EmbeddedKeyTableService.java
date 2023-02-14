@@ -27,4 +27,8 @@ public class EmbeddedKeyTableService {
     repository.save(embeddedKeyTable);
     return repository.findByDaily(1L, "testkey", 1L, 4L);
   }
+
+  public int count(long dailyTimestamp, String partitionKey) {
+    return repository.count(dailyTimestamp, partitionKey);
+  }
 }
