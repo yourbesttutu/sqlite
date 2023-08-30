@@ -1,17 +1,19 @@
 package com.pxp.SQLite.demo.entity.keys;
 
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
+import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
+import org.springframework.data.cassandra.core.mapping.PrimaryKeyClass;
+import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn;
 
-@Embeddable
+@PrimaryKeyClass
 public class UserVisitCountKey implements Serializable {
 
-  @Column(name = "id")
+  @PrimaryKeyColumn(name = "id", ordinal = 0, type = PrimaryKeyType.PARTITIONED)
   private String id;
-  @Column(name = "url")
+  @PrimaryKeyColumn(name = "url", ordinal = 1, type = PrimaryKeyType.CLUSTERED)
   private String url;
-  @Column(name = "creationtime")
+  @PrimaryKeyColumn(name = "creationtime", ordinal = 2, type = PrimaryKeyType.CLUSTERED)
+
   private long creationTime;
 
   public UserVisitCountKey() {

@@ -2,16 +2,12 @@ package com.pxp.SQLite.demo.entity;
 
 import com.pxp.SQLite.demo.entity.keys.UserVisitCountKey;
 import java.util.Objects;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
-//TODO add one min TTL here
-@Entity
-@Table(name = "user_visit_count")
+import org.springframework.data.cassandra.core.mapping.PrimaryKey;
+import org.springframework.data.cassandra.core.mapping.Table;
+@Table("user_visit_count")
 public class UserVisitCount {
 
-  @EmbeddedId
+  @PrimaryKey
   private UserVisitCountKey userVisitCountKey;
   private String data;
 

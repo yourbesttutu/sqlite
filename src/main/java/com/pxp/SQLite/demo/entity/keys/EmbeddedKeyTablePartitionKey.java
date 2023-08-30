@@ -1,9 +1,11 @@
 package com.pxp.SQLite.demo.entity.keys;
 
 import java.io.Serializable;
-import javax.persistence.Embeddable;
+import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
+import org.springframework.data.cassandra.core.mapping.PrimaryKeyClass;
+import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn;
 
-@Embeddable
+@PrimaryKeyClass
 public class EmbeddedKeyTablePartitionKey implements Serializable {
 
   public EmbeddedKeyTablePartitionKey() {
@@ -13,8 +15,9 @@ public class EmbeddedKeyTablePartitionKey implements Serializable {
     this.partitionKey = partitionKey;
     this.dailyTimestamp = dailyTimestamp;
   }
-
+  @PrimaryKeyColumn(name = "pk", ordinal = 0, type = PrimaryKeyType.PARTITIONED)
   private String partitionKey;
+  @PrimaryKeyColumn(name = "dt", ordinal = 1, type = PrimaryKeyType.PARTITIONED)
   private long dailyTimestamp;
 
   public String getPartitionKey() {

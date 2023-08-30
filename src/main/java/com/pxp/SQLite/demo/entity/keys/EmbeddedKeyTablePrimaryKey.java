@@ -1,30 +1,44 @@
 package com.pxp.SQLite.demo.entity.keys;
 
 import java.io.Serializable;
-import javax.persistence.Embeddable;
+import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
+import org.springframework.data.cassandra.core.mapping.PrimaryKeyClass;
+import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn;
 
-@Embeddable
+@PrimaryKeyClass
 public class EmbeddedKeyTablePrimaryKey implements Serializable {
 
   public EmbeddedKeyTablePrimaryKey() {
   }
 
   public EmbeddedKeyTablePrimaryKey(String partitionKey, long dailyTimestamp, long timestamp) {
-    this.embeddedKeyTablePartitionKey = new EmbeddedKeyTablePartitionKey(partitionKey,
-        dailyTimestamp);
+    this.partitionKey = partitionKey;
+    this.dailyTimestamp = dailyTimestamp;
     this.timestamp = timestamp;
   }
 
-  private EmbeddedKeyTablePartitionKey embeddedKeyTablePartitionKey;
+  @PrimaryKeyColumn(name = "pk", ordinal = 0, type = PrimaryKeyType.PARTITIONED)
+  private String partitionKey;
+  @PrimaryKeyColumn(name = "dt", ordinal = 1, type = PrimaryKeyType.PARTITIONED)
+  private long dailyTimestamp;
+  @PrimaryKeyColumn(name = "t", ordinal = 2, type = PrimaryKeyType.CLUSTERED)
+
   private long timestamp;
 
-  public EmbeddedKeyTablePartitionKey getEmbeddedKeyTablePartitionKey() {
-    return embeddedKeyTablePartitionKey;
+  public String getPartitionKey() {
+    return partitionKey;
   }
 
-  public void setEmbeddedKeyTablePartitionKey(
-      EmbeddedKeyTablePartitionKey embeddedKeyTablePartitionKey) {
-    this.embeddedKeyTablePartitionKey = embeddedKeyTablePartitionKey;
+  public void setPartitionKey(String partitionKey) {
+    this.partitionKey = partitionKey;
+  }
+
+  public long getDailyTimestamp() {
+    return dailyTimestamp;
+  }
+
+  public void setDailyTimestamp(long dailyTimestamp) {
+    this.dailyTimestamp = dailyTimestamp;
   }
 
   public long getTimestamp() {

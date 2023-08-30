@@ -1,12 +1,9 @@
 package com.pxp.SQLite.demo.service;
 
 import com.pxp.SQLite.demo.entity.EmbeddedKeyTable;
-import com.pxp.SQLite.demo.entity.Student;
 import com.pxp.SQLite.demo.entity.keys.EmbeddedKeyTablePrimaryKey;
 import com.pxp.SQLite.demo.repository.EmbeddedKeyTableRepository;
-import com.pxp.SQLite.demo.repository.StudentRepository;
 import java.util.List;
-import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

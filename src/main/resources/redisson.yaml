@@ -1,6 +1,6 @@
 ---
 singleServerConfig:
-  address: "redis://34.230.80.74:6379"
+  address: "redis://localhost:6379"
   clientName: null
   connectionMinimumIdleSize: 32
   connectionPoolSize: 64

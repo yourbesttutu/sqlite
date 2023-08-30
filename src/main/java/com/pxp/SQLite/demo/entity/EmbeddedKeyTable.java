@@ -2,21 +2,20 @@ package com.pxp.SQLite.demo.entity;
 
 import com.pxp.SQLite.demo.entity.keys.EmbeddedKeyTablePrimaryKey;
 import java.nio.ByteBuffer;
-import java.util.Set;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
+import org.springframework.data.cassandra.core.mapping.PrimaryKey;
+import org.springframework.data.cassandra.core.mapping.Table;
 
-@Entity
+@Table("e")
 public class EmbeddedKeyTable {
 
   public EmbeddedKeyTable() {
   }
 
-  @EmbeddedId
+  @PrimaryKey
   private EmbeddedKeyTablePrimaryKey embeddedKeyTablePrimaryKey;
   private String data;
-//  private Set<String> set;
-  private byte[] byteBuffer;
+  //  private Set<String> set;
+  private ByteBuffer byteBuffer;
 
   public EmbeddedKeyTablePrimaryKey getEmbeddedKeyTablePrimaryKey() {
     return embeddedKeyTablePrimaryKey;
@@ -43,11 +42,12 @@ public class EmbeddedKeyTable {
 //    this.set = set;
 //  }
 
-  public byte[] getByteBuffer() {
+
+  public ByteBuffer getByteBuffer() {
     return byteBuffer;
   }
 
-  public void setByteBuffer(byte[] byteBuffer) {
+  public void setByteBuffer(ByteBuffer byteBuffer) {
     this.byteBuffer = byteBuffer;
   }
 }
